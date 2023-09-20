@@ -36,6 +36,11 @@ export const soekSearch = async ({ key, indexURL }) => {
 
   go.run(wasmModule.instance);
 
+  if (!key) {
+    console.error("No key provided");
+    return;
+  }
+
   if (!indexURL) {
     console.error("Index URL is undefined");
     return;
