@@ -1,0 +1,32 @@
+[
+    {
+        "categories": [
+            "Featured",
+            "Kubernetes"
+        ],
+        "content": "This is some sample content",
+        "permalink": "https://navendu.me/posts/gateway-vs-ingress-api/",
+        "summary": "Exploring the new Kubernetes Gateway API and comparing it with the existing Kubernetes Ingress API for handling external traffic.",
+        "title": "Comparing Kubernetes Gateway and Ingress APIs"
+    },
+    {
+        "categories": [
+            "Software Engineering",
+            "Featured"
+        ],
+        "content": "This is some sample content",
+        "permalink": "https://navendu.me/posts/how-i-ask-questions/",
+        "summary": "I ask a lot of Kubernetes questions to my peers and to strangers on public forums in the internet. This year, I have been trying to improve this process to ask better questions. Here is how I do it.",
+        "title": "How I Ask Questions as a Software Engineer"
+    },
+    {
+        "categories": [
+            "Featured",
+            "Microservices"
+        ],
+        "content": "This is some sample Kubernetes content",
+        "permalink": "https://navendu.me/posts/introduction-to-monitoring-microservices/",
+        "summary": "This tutorial walks you through Kubernetes setting up monitoring on a microservice application using Prometheus and Grafana.",
+        "title": "An Introduction to Monitoring Microservices with Prometheus and Grafana"
+    }
+]
