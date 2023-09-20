@@ -3,7 +3,7 @@ package main
 import (
 	"syscall/js"
 
-	"github.com/navendu-pottekkat/soek/pkg/algorithms"
+	alg "github.com/navendu-pottekkat/soek/pkg/algorithms"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 }
 
 func callSearch(this js.Value, args []js.Value) interface{} {
-	matches := algorithms.Search(args[0].String(), args[1].String())
+	matches := alg.Search(args[0].String(), args[1].String())
 	jsArray := js.Global().Get("Array").New(len(matches))
 	for i, val := range matches {
 		jsArray.SetIndex(i, js.ValueOf(val))
