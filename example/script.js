@@ -1,10 +1,12 @@
 import { soekSearch } from "../dist/soek.min.js";
 
 const search = async () => {
-    const key = "Kubernetes";
-    const indexURL = "./small_search_index.json";
-  const matches = await soekSearch(key, indexURL);
-  console.log("search results for", key, "in", indexURL);
+  const config = {
+    key: "Kubernetes",
+    indexURL: "./small_search_index.json",
+  };
+  const matches = await soekSearch(config);
+  console.log("search results for", config.key, "in", config.indexURL);
   if (matches.length === 0) {
     console.log("no matches found");
   } else {
