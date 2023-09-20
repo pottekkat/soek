@@ -30,7 +30,7 @@ var scriptURL = new URL(import.meta.url);
 // Resolve relative URL to absolute URL
 var wasmURL = new URL("./soek.wasm", scriptURL);
 
-export const runSearch = async (key, indexURL) => {
+export const soekSearch = async (key, indexURL) => {
   const importObject = go.importObject;
   const wasmModule = await wasmBrowserInstantiate(wasmURL, importObject);
 
@@ -41,11 +41,11 @@ export const runSearch = async (key, indexURL) => {
     return;
   }
 
-  fetch(indexURL)
+  return fetch(indexURL)
     .then((response) => response.json())
     .then((indexJSON) => {
       const index = JSON.stringify(indexJSON);
 
-      console.log(callSearch(key, index));
+      return callSearch(key, index);
     });
 };
