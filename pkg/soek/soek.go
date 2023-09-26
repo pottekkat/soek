@@ -19,6 +19,7 @@ func Search(key string, indexJSONString string) []map[string]interface{} {
 	for _, i := range index {
 		for k, v := range i {
 			if str, ok := v.(string); ok {
+				str = strings.ToLower(str)
 				if strings.Contains(str, key) {
 					matches = append(matches, i)
 					break
@@ -27,6 +28,7 @@ func Search(key string, indexJSONString string) []map[string]interface{} {
 				listContainsKey := false
 				for _, j := range list {
 					if li, ok := j.(string); ok {
+						li = strings.ToLower(li)
 						if strings.Contains(li, key) {
 							listContainsKey = true
 							break
