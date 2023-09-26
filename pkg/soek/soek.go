@@ -1,4 +1,4 @@
-package algorithms
+package soek
 
 import (
 	"encoding/json"

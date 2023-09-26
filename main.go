@@ -3,7 +3,7 @@ package main
 import (
 	"syscall/js"
 
-	alg "github.com/pottekkat/soek/pkg/algorithms"
+	soek "github.com/pottekkat/soek/pkg/soek"
 )
 
 func main() {
@@ -14,8 +14,9 @@ func main() {
 	<-w
 }
 
+// callSearch exposes the functionality of soek.Search to JavaScript
 func callSearch(this js.Value, args []js.Value) interface{} {
-	matches := alg.Search(args[0].String(), args[1].String())
+	matches := soek.Search(args[0].String(), args[1].String())
 	jsArray := js.Global().Get("Array").New(len(matches))
 	for i, val := range matches {
 		jsArray.SetIndex(i, js.ValueOf(val))
