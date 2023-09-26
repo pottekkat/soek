@@ -2,7 +2,7 @@ import { soekSearch } from "../dist/soek.min.js";
 
 const search = async () => {
   const config = {
-    key: "Kubernetes",
+    key: "Hopperguys",
     indexURL: "./small_search_index.json",
   };
   const matches = await soekSearch(config);

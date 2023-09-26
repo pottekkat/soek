@@ -23,10 +23,24 @@ func Search(key string, indexJSONString string) []map[string]interface{} {
 					matches = append(matches, i)
 					break
 				}
+			} else if list, ok := v.([]interface{}); ok {
+				listContainsKey := false
+				for _, j := range list {
+					if li, ok := j.(string); ok {
+						if strings.Contains(li, key) {
+							listContainsKey = true
+							break
+						}
+					}
+				}
+				if listContainsKey {
+					matches = append(matches, i)
+					break
+				}
 			} else {
-				// TODO: handle non-string values
-				println("non-string value for key: ", k)
+				println("unsupported key type found in index: ", k)
 			}
+
 		}
 	}
 	return matches
