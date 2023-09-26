@@ -23,11 +23,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function displayMatches(matches, matchesDiv) {
   for (let i = 0; i < matches.length; i++) {
     const match = matches[i];
+    if (match.categories.includes("Daily Dose of Pottekkat")) {
+        continue;
+    }
     const matchElement = document.createElement("h2");
     const anchorElement = document.createElement("a");
     anchorElement.href = match.permalink;
     anchorElement.textContent = match.title;
     anchorElement.target = "_blank";
+    anchorElement.className = "list-group-item";
     matchElement.appendChild(anchorElement);
     matchesDiv.appendChild(matchElement);
   }
