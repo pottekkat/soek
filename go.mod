@@ -1,3 +1,3 @@
-module github.com/navendu-pottekkat/soek
+module github.com/pottekkat/soek
 
 go 1.21.0

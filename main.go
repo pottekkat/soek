@@ -3,11 +3,12 @@ package main
 import (
 	"syscall/js"
 
-	alg "github.com/navendu-pottekkat/soek/pkg/algorithms"
+	alg "github.com/pottekkat/soek/pkg/algorithms"
 )
 
 func main() {
 	// Reference: https://www.aaron-powell.com/posts/2019-02-06-golang-wasm-3-interacting-with-js-from-go/
+	// Also see: https://dev.to/x1unix/go-webassembly-internals-part-1-14aj
 	w := make(chan bool)
 	js.Global().Set("callSearch", js.FuncOf(callSearch))
 	<-w
