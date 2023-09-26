@@ -3,7 +3,7 @@ package main
 import (
 	"syscall/js"
 
-	soek "github.com/pottekkat/soek/pkg/soek"
+	"github.com/pottekkat/soek/pkg/soek"
 )
 
 func main() {
