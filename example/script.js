@@ -11,7 +11,7 @@ const search = async () => {
     console.log("no matches found");
   } else {
     for (let i = 0; i < matches.length; i++) {
-      console.log(matches[i]);
+      console.log(matches[i]["title"]);
     }
   }
 };
