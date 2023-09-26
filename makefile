@@ -9,7 +9,7 @@ setup: install-binaryen-wasm-opt
 	npm install terser -g
 
 compress-js:
-	terser ./scripts/soek.js -o ./dist/soek.min.js --compress --mangle
+	terser ./scripts/soek.js -o ./dist/soek.min.js --compress --mangle --keep-fnames --comments "all"
 
 build-dev: compress-js
 	tinygo build -o ./dist/soek.wasm -target wasm ./main.go

@@ -30,6 +30,12 @@ var scriptURL = new URL(import.meta.url);
 // Resolve relative URL to absolute URL
 var wasmURL = new URL("./soek.wasm", scriptURL);
 
+/**
+ * Searches for the given key in the provided index.
+ * @param {string} key - The key to search for.
+ * @param {string} indexURL - The URL of the index.json file.
+ * @returns {Promise} A promise that resolves with the matches of the search results.
+ */
 export const soekSearch = async ({ key, indexURL }) => {
   const importObject = go.importObject;
   const wasmModule = await wasmBrowserInstantiate(wasmURL, importObject);

@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   searchBar.addEventListener("input", async () => {
     const matchesDiv = document.getElementById("matches");
+
     matchesDiv.innerHTML = ""; // clear previous matches
     if (!searchBar.value) {
-      return;
+      return; // don't search if the search bar is empty
     }
+
     const config = {
       key: searchBar.value,
       indexURL: "./search_index.json",
@@ -23,9 +25,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function displayMatches(matches, matchesDiv) {
   for (let i = 0; i < matches.length; i++) {
     const match = matches[i];
+
     if (match.categories.includes("Daily Dose of Pottekkat")) {
-        continue;
+        continue; // optional: if match has the category "Daily Dose of Pottekkat", skip it
     }
+
+    // Display the title of the match as a link
     const matchElement = document.createElement("h2");
     const anchorElement = document.createElement("a");
     anchorElement.href = match.permalink;
