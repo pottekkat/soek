@@ -1,0 +1,30 @@
+{
+  "name": "soek",
+  "version": "0.0.1",
+  "description": "soek is a pure client-side search library built using Go and WebAssembly.",
+  "main": "./scripts/soek.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compress-js": "npx terser ./scripts/soek.js -o ./dist/soek.min.js --compress --mangle --keep-fnames --comments all",
+    "compress-wasm": "npx wasm-opt -Oz ./dist/soek.wasm -o ./dist/soek.wasm",
+    "build-dev": "npm run compress-js && tinygo build -o ./dist/soek.wasm -target wasm ./main.go",
+    "build": "npm run compress-js && tinygo build -o ./dist/soek.wasm -target wasm -no-debug -panic=trap ./main.go && npm run compress-wasm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pottekkat/soek.git"
+  },
+  "author": "Navendu Pottekkat",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pottekkat/soek/issues"
+  },
+  "homepage": "https://github.com/pottekkat/soek#readme",
+  "devDependencies": {
+    "binaryen": "^114.0.0",
+    "terser": "^5.20.0"
+  }
+}
