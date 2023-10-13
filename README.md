@@ -12,8 +12,7 @@ soek is a pure client-side search library built using Go and WebAssembly.
 The `example` folder contains a sample site that uses soek. To run the example, first build soek by running:
 
 ```shell
-make setup
-make build-production
+npm run build
 ```
 
 Then serve the files in the example folder and open `index.html` in your browser.
