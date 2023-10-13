@@ -3,7 +3,9 @@
 soek is a pure client-side search library built using Go and WebAssembly.
 
 > [!NOTE]  
-> This project sucks, and I don't know what I'm doing. But it is open source in the interest of building in public. I hope to make it less sucky as I learn more. If you are reading this and think this project sucks, help me out by sharing how to make it suck less.
+> This project sucks, and I don't know what I'm doing. But it is open source in the interest of building in public. I hope to make it less sucky as I learn more.
+> 
+> If you are reading this and think this project sucks, help me out by sharing how to make it suck less.
 
 ## Example
 
