@@ -36,7 +36,7 @@ var wasmURL = new URL("./soek.wasm", scriptURL);
  * @param {string} indexURL - The URL of the index.json file.
  * @returns {Promise} A promise that resolves with the matches of the search results.
  */
-export const soekSearch = async ({ key, indexURL }) => {
+export const soekSearch = async ({ key, index }) => {
   const importObject = go.importObject;
   const wasmModule = await wasmBrowserInstantiate(wasmURL, importObject);
 
@@ -47,16 +47,10 @@ export const soekSearch = async ({ key, indexURL }) => {
     return;
   }
 
-  if (!indexURL) {
-    console.error("Index URL is undefined");
+  if (!index) {
+    console.error("No index provided");
     return;
   }
 
-  return fetch(indexURL)
-    .then((response) => response.json())
-    .then((indexJSON) => {
-      const index = JSON.stringify(indexJSON);
-
-      return callSearch(key, index);
-    });
+  return callSearch(key, index);
 };

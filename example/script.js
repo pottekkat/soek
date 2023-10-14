@@ -2,6 +2,7 @@ import { soekSearch } from "../dist/soek.min.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   const searchBar = document.getElementById("search-bar");
+  const indexURL = "./search_index.json";
 
   searchBar.addEventListener("input", async () => {
     const matchesDiv = document.getElementById("matches");
@@ -11,9 +12,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return; // don't search if the search bar is empty
     }
 
+    const index = JSON.stringify(await (await fetch(indexURL)).json()); // fetch the index file and convert it to JSON string
+
     const config = {
       key: searchBar.value,
-      indexURL: "./search_index.json",
+      index: index,
     };
 
     const matches = await soekSearch(config);
