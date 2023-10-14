@@ -1,21 +1,13 @@
 package soek
 
 import (
-	"encoding/json"
 	"strings"
 )
 
-var index []map[string]interface{}
 var matches []map[string]interface{}
 
 // Search looks for the given key in the index and returns a list of matched titles
-func Search(key string, indexJSONString string) []map[string]interface{} {
-	err := json.Unmarshal([]byte(indexJSONString), &index)
-	if err != nil {
-		println("could not unmarshal JSON: %s\n", err)
-		return nil
-	}
-
+func Search(key string, index []map[string]interface{}) []map[string]interface{} {
 	for _, i := range index {
 		for k, v := range i {
 			if str, ok := v.(string); ok {
